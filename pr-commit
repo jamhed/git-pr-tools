@@ -1,0 +1,12 @@
+#!/bin/bash
+MSG=$1
+BRANCH=`git rev-parse --abbrev-ref HEAD`
+HEADER=`echo $BRANCH | perl -p -e 's/^(\w+\-\d+)\-.*/$1/'`
+echo Working on $HEADER
+if [ "$MSG" == "" ]
+then
+	echo Empty commit message, exiting...
+	exit
+fi
+git commit -a -m "$HEADER $MSG"
+git push

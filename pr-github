@@ -1,0 +1,3 @@
+#!/bin/bash
+BRANCH=`git rev-parse --abbrev-ref HEAD`
+google-chrome https://github.com/2600hz/kazoo/compare/$BRANCH

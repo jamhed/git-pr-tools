@@ -1,0 +1,6 @@
+#!/bin/bash
+git diff --pretty="" --name-only upstream/master | while read file
+do
+	TO_DIALYZE=$file make dialyze
+	scripts/code_checks.bash $file
+done

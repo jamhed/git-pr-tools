@@ -1,0 +1,6 @@
+#!/bin/bash
+git show --pretty="" --name-only | while read file
+do
+	TO_FMT=$file make fmt
+done
+git commit -a -m "make fmt"

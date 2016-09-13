@@ -1,0 +1,12 @@
+#!/bin/bash
+BRANCH=$1
+if [ "$BRANCH" = "" ]
+then
+	echo Specify branch
+	exit
+fi
+git checkout master
+git fetch upstream master
+git rebase upstream/master
+git checkout -b $BRANCH
+git push upstream HEAD -u
